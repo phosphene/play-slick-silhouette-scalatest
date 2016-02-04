@@ -16,6 +16,8 @@ import play.api.test.{ FakeRequest, PlaySpecification, WithApplication }
 
 /**
  * Test case for the [[controllers.ApplicationController]] class.
+  * I don't think I like this style of testing as much as the other test style I have in place
+  * check the other tests as they are simpler
  */
 class ApplicationControllerSpec extends PlaySpecification with Mockito {
   sequential
