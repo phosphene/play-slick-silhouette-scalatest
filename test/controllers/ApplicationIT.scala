@@ -26,9 +26,6 @@ class ApplicationIT extends FunSpec with Matchers {
         val result = route(FakeRequest(GET, "/")).get
         status(result) should be (SEE_OTHER)
         redirectLocation(result) should be (Some("/signIn"))
-        //status(home) should be (OK)
-        //contentType(home) should be (Some("text/html"))
-        //contentAsString(home) should include ("Sign In")
       }
     }
   }
