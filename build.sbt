@@ -20,13 +20,21 @@ libraryDependencies ++= Seq(
   "com.adrianhurt" %% "play-bootstrap3" % "0.4.4-P24",
   "com.mohiva" %% "play-silhouette-testkit" % "3.0.2" % "test",
   specs2 % Test,
-  "com.typesafe.play" %% "play-slick" % "1.0.1",
-  "com.typesafe.play" %% "play-slick-evolutions" % "1.0.1",
   "com.h2database" % "h2" % "1.4.188",
   cache,
   evolutions,
   filters
 )
+
+
+libraryDependencies ++= Seq(
+  "org.scalactic" %% "scalactic" % "2.2.6",
+  "org.scalatest" %% "scalatest" % "2.2.6" % "test",
+  "org.scalatestplus" %% "play" % "1.4.0-M3" % "test",
+  "com.typesafe.play" %% "play-slick" % "1.1.1",
+  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1"
+)
+
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
