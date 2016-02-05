@@ -36,7 +36,10 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "com.codeborne" % "phantomjsdriver" % "1.2.1" % "test"
+libraryDependencies += "org.yaml" % "snakeyaml" % "1.16" % "test"
+resolvers += "justwrote" at "http://repo.justwrote.it/snapshots/"
 
+libraryDependencies += "it.justwrote" %% "scala-faker" % "0.4-SNAPSHOT" % "test"
 
 
 // Enable the plugins
