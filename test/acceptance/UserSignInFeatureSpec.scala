@@ -13,13 +13,16 @@ import org.scalatest.Matchers
 class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAndAfter with Matchers {
 
   var browser: TestBrowser = _
-
+  var server: TestServer = _
   before {
-    val server = Helpers.testServer(3333)
+    server = Helpers.testServer(3333)
     server.start()
     browser = Helpers.testBrowser(new PhantomJSDriver())
   }
 
+  after {
+    server.stop()
+  }
   feature("Any new user can reach the SignIn page") {
     
     info("As a new user")
