@@ -35,8 +35,16 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1"
 )
 
+libraryDependencies += "com.codeborne" % "phantomjsdriver" % "1.2.1" % "test"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+
+
+// Enable the plugins
+lazy val root = (project in file(".")).enablePlugins(PlayScala, PhantomJs)
+
+javaOptions in Test ++= PhantomJs.setup(baseDirectory.value)
+
+
 
 routesGenerator := InjectedRoutesGenerator
 
