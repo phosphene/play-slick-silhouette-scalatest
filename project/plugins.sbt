@@ -12,3 +12,5 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.4.2")
 
 // Use the Scalariform plugin to reformat the code
 addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0")
+// Use Phantomjs for testing
+addSbtPlugin("jp.leafytree.sbt" % "sbt-phantomjs" % "0.1.4")
