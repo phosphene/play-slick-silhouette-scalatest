@@ -30,6 +30,6 @@ so our real tests are in test/acceptance
 
 and you probably only want to run those.
 
-# Test only syntax for sbt using a wildcard
+#### Test only syntax for sbt using a wildcard
 
     $ sbt "test-only *FeatureSpec"
