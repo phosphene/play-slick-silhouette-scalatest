@@ -30,7 +30,7 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "2.2.6",
   "org.scalatest" %% "scalatest" % "2.2.6" % "test",
-  "org.scalatestplus" %% "play" % "1.4.0-M3" % "test",
+  "org.scalatestplus" %% "play" % "1.4.0-M4" % "test",
   "com.typesafe.play" %% "play-slick" % "1.1.1",
   "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1"
 )
