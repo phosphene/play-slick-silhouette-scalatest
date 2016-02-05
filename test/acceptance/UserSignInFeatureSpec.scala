@@ -1,14 +1,13 @@
+package acceptance
+
 import org.scalatest._
-
-
-
 import play.test._
-
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 
 import org.scalatest.FeatureSpec
 import org.scalatest.GivenWhenThen
 import org.scalatest.BeforeAndAfter
+import org.scalatest.Matchers
 
 
 class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAndAfter with Matchers {
@@ -16,7 +15,6 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
   var browser: TestBrowser = _
 
   before {
-    
     val server = Helpers.testServer(3333)
     server.start()
     browser = Helpers.testBrowser(new PhantomJSDriver())
@@ -37,7 +35,6 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
       
       Then("I should see the Sign In page")
       browser.pageSource should include ("Sign In")
-     
     }
   }
 }
