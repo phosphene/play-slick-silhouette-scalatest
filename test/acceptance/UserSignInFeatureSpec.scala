@@ -6,12 +6,16 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver
 import play.api.test.FakeApplication
 import play.api.test.TestServer
 import play.api.test.Helpers._
-import play.Application
+import play.api.db.slick._
+
+
 
 /**
   * Acceptance testing using PhantomJS and FeatureSpec syntax
   * Note that Given, When, and Then are capitalized as then is  
   * a reserved word in latter day Scala
+  * note the use of before and after blocks which said convention is mixed in using
+  * BeforeAndAfter trait
   */
 
 class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAndAfter with Matchers {
@@ -19,7 +23,6 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
   var browser: TestBrowser = _
   var server: TestServer = _
   
-
 
   before {
     val appWithMemoryDatabase  = FakeApplication(additionalConfiguration = inMemoryDatabase("test"))
