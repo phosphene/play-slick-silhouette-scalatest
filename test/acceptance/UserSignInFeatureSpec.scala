@@ -25,7 +25,7 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
   
 
   before {
-    val appWithMemoryDatabase  = FakeApplication(additionalConfiguration = inMemoryDatabase("test"))
+    val appWithMemoryDatabase  = FakeApplication(additionalConfiguration = inMemoryDatabase())
 
    server = new TestServer(3333, appWithMemoryDatabase)
    server.start()
