@@ -3,7 +3,10 @@ package acceptance
 import org.scalatest._
 import play.test._
 import org.openqa.selenium.phantomjs.PhantomJSDriver
-
+import play.api.test.FakeApplication
+import play.api.test.TestServer
+import play.api.test.Helpers._
+import play.Application
 
 /**
   * Acceptance testing using PhantomJS and FeatureSpec syntax
@@ -15,11 +18,15 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
 
   var browser: TestBrowser = _
   var server: TestServer = _
+  
+
 
   before {
-    server = Helpers.testServer(3333)
-    server.start()
-    browser = Helpers.testBrowser(new PhantomJSDriver())
+    val appWithMemoryDatabase  = FakeApplication(additionalConfiguration = inMemoryDatabase("test"))
+
+   server = new TestServer(3333, appWithMemoryDatabase)
+   server.start()
+   browser = Helpers.testBrowser(new PhantomJSDriver())
   }
 
   after {
