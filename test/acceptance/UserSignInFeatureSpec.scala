@@ -56,6 +56,7 @@ class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAn
 
   after {
     server.stop()
+    browser.quit()
   }
 
   feature("Any new user can reach the SignIn page") {

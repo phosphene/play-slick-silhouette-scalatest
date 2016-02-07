@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "org.scalatestplus" %% "play" % "1.4.0-M4" % "test",
   "com.typesafe.play" %% "play-slick" % "1.1.1",
   "com.typesafe.play" %% "play-slick-evolutions" % "1.1.1"
-)
+  )
 
 libraryDependencies += "com.codeborne" % "phantomjsdriver" % "1.2.1" % "test"
 libraryDependencies += "org.yaml" % "snakeyaml" % "1.16" % "test"
