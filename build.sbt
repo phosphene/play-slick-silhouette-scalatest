@@ -13,6 +13,7 @@ resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(
+  "org.virtuslab" %% "unicorn-play" % "1.0.0",
   "com.mohiva" %% "play-silhouette" % "3.0.2",
   "org.webjars" %% "webjars-play" % "2.4.0-1",
   "net.codingwell" %% "scala-guice" % "4.0.0",
