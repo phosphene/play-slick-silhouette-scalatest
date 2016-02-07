@@ -7,7 +7,19 @@ import play.api.test.FakeApplication
 import play.api.test.TestServer
 import play.api.test.Helpers._
 import play.api.db.slick._
+import play.api.Play
+import play.api.db.slick.DatabaseConfigProvider
+import slick.driver.JdbcProfile
+import slick.profile._
+import models.User
 
+
+trait WithDatabaseConfig {
+  lazy val (driver, db) = {
+    val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
+    (dbConfig.driver, dbConfig.db)
+  }
+}
 
 
 /**
@@ -20,16 +32,26 @@ import play.api.db.slick._
 
 class UserSignInFeatureSpec extends FeatureSpec with GivenWhenThen with BeforeAndAfter with Matchers {
 
+
+  trait WithDatabaseConfig {
+    lazy val (driver, db) = {
+      val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
+      (dbConfig.driver, dbConfig.db)
+    }
+  }
+
   var browser: TestBrowser = _
   var server: TestServer = _
+  var db: Any = _
   
-
   before {
     val appWithMemoryDatabase  = FakeApplication(additionalConfiguration = inMemoryDatabase())
-
-   server = new TestServer(3333, appWithMemoryDatabase)
-   server.start()
-   browser = Helpers.testBrowser(new PhantomJSDriver())
+    
+    server = new TestServer(3333, appWithMemoryDatabase)
+    server.start()
+    browser = Helpers.testBrowser(new PhantomJSDriver())
+    val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
+    db = dbConfig.db
   }
 
   after {
